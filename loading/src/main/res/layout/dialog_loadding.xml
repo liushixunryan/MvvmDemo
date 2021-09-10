@@ -1,0 +1,68 @@
+<!--
+标题：等待窗界面
+描述：显示等待窗
+作者：ryanliu
+时间：2021-09-10
+java: LoadingDialog
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/dialog_white_bg_shape">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!--  https://blog.csdn.net/u010725171/article/details/81358737  -->
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/avi"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="100dp"
+                android:visibility="visible"
+                app:indicatorColor="#0290ff"
+                app:indicatorName="BallPulseSyncIndicator" />
+
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="正在加载"
+                android:textColor="#0290ff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/print_btn_bg_normal"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone"
+                android:text="取消"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

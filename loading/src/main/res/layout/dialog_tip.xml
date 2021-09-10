@@ -1,0 +1,95 @@
+<!--
+标题：提示窗界面
+描述：显示提示窗
+作者：ryanliu
+时间：2021-09-10
+java: TipDialog
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/dialog_white_bg_shape">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:text="提示"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="asdfasdfasdf"
+                android:textColor="@color/defalut_text"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="确定"
+                    android:textColor="@color/blue_bg"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/line_view"
+                    android:layout_width="0.1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_text" />
+
+                <TextView
+                    android:id="@+id/cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="取消"
+                    android:textColor="@color/defalut_text"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

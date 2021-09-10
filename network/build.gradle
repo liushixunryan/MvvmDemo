@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //引入DataBinding
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies.publicImplementation
+    testImplementation rootProject.ext.dependencies.publictestImplementation
+    androidTestImplementation rootProject.ext.dependencies.publicandroidTestImplementation
+    api 'com.squareup.retrofit2:retrofit:2.5.0'  // 必要retrofit依赖
+    api 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'  // 必要rxjava2依赖
+    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+    api 'com.squareup.okhttp3:okhttp:3.12.8'
+    api 'com.squareup.okhttp3:logging-interceptor:3.12.8'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.2'  // 必要rxandrroid依赖，切线程时需要用到
+}

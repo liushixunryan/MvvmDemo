@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        advanced {
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //引入DataBinding
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies.publicImplementation
+    testImplementation rootProject.ext.dependencies.publictestImplementation
+    androidTestImplementation rootProject.ext.dependencies.publicandroidTestImplementation
+
+    //loading动画
+    api 'com.wang.avi:library:2.1.3'
+}

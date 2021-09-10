@@ -1,0 +1,9 @@
+include ':network'
+include ':loading'
+include ':annotation_compiler'
+include ':annotation'
+include ':common'
+include ':arouter'
+include ':basic'
+include ':app'
+rootProject.name = "MVVMDemo"
