@@ -1,3 +1,4 @@
+include ':login'
 include ':network'
 include ':loading'
 include ':annotation_compiler'

@@ -23,6 +23,7 @@
       <module name="MVVMDemo.basic" target="1.8" />
       <module name="MVVMDemo.common" target="1.8" />
       <module name="MVVMDemo.loading" target="1.8" />
+      <module name="MVVMDemo.login" target="1.8" />
       <module name="MVVMDemo.network" target="1.8" />
     </bytecodeTargetLevel>
   </component>

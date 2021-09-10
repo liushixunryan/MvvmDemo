@@ -61,7 +61,7 @@ public class ARouter {
     public void init(Context context) {
         //调用生成的工具类的方法
         this.context = context;
-        List<String> className = getClassName("cn.ryanliu.util");
+        List<String> className = getClassName("com.xql.util");
         for (String s : className) {
             try {
                 Class<?> aClass = Class.forName(s);
@@ -114,6 +114,7 @@ public class ARouter {
         if (bundle != null) {
             intent.putExtras(bundle);
         }
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="onClickLister"
+            type="com.xql.mvvmdemo.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,9 +15,11 @@
         tools:context=".MainActivity">
 
         <TextView
+            android:id="@+id/top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello World!"
+            android:onClick="@{onClickLister.onClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

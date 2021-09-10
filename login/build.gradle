@@ -1,5 +1,7 @@
-plugins {
-    id 'com.android.application'
+if (rootProject.ext.android.is_application) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
 }
 
 android {
@@ -7,14 +9,23 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.xql.mvvmdemo"
+        if (rootProject.ext.android.is_application) {
+            applicationId "com.xql.login"
+        }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
-        // 这里添加
-        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    sourceSets {
+        main {
+            if (rootProject.ext.android.is_application) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }
+        }
     }
 
     buildTypes {
@@ -23,27 +34,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     //引入DataBinding
     dataBinding {
         enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation rootProject.ext.dependencies.publicImplementation
-
     testImplementation rootProject.ext.dependencies.publictestImplementation
     androidTestImplementation rootProject.ext.dependencies.publicandroidTestImplementation
 
-    if (!rootProject.ext.android.is_application) {
-        implementation project(path: ':login')
-    }
-
-    rootProject.ext.dependencies.other.each {
+    rootProject.ext.dependencies.other.each{
         implementation project(it)
     }
 
